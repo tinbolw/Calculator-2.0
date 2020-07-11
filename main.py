@@ -6,78 +6,118 @@ import webbrowser
 #TODO
 #add pemdas
 
-mathVar = 0
+isFirstNum = True
+isSecondNum = False
+
+firstNum = 0
+secondNum = 0
 indexNum = 0
+
+addNum = False
+subtractNum = False
+divideNum = False
+multiplyNum = False
+
 
 def reportIssue():
 	webbrowser.open('https://github.com/tinbolw/Calculator-2.0/issues')
 
 def clearAll():
+	global isFirstNum
 	global indexNum
-	mathVar = 0
+	global firstNum
+	global secondNum
+	firstNum = 0
+	secondNum = 0
 	outputBox.delete(0, tk.END)
 	indexNum = 0
+	isFirstNum = True
+
+def deleteNum():
+	global indexNum
+	outputBox.delete(indexNum, tk.END)
+	indexNum -= 1
+
+#All addnum functions
 
 def add1():
+	global isFirstNum
 	global indexNum
-	outputBox.insert(indexNum, 1)
-	mathVar1 = outputBox.get()
-	indexNum += 1
+	if isFirstNum:
+		outputBox.insert(indexNum, 1)
+		firstNumVar = outputBox.get()
+		indexNum += 1
+	elif isSecondNum:
+		outputBox.insert(indexNum, 1)
+		secondNumVar = outputBox.get()
+		indexNum += 1
+
 
 def add2():
 	global indexNum
 	outputBox.insert(indexNum, 2)
-	mathVar1 = outputBox.get()
 	indexNum += 1
 
 def add3():
 	global indexNum
 	outputBox.insert(indexNum, 3)
-	mathVar1 = outputBox.get()
 	indexNum += 1
 
 
 def add4():
 	global indexNum
 	outputBox.insert(indexNum, 4)
-	mathVar1 = outputBox.get()
 	indexNum += 1
 
 def add5():
 	global indexNum
 	outputBox.insert(indexNum, 5)
-	mathVar1 = outputBox.get()
 	indexNum += 1
 
 def add6():
 	global indexNum
 	outputBox.insert(indexNum, 6)
-	mathVar1 = outputBox.get()
 	indexNum += 1
 
 def add7():
 	global indexNum
 	outputBox.insert(indexNum, 7)
-	mathVar1 = outputBox.get()
 	indexNum += 1
 
 def add8():
 	global indexNum
 	outputBox.insert(indexNum, 8)
-	mathVar1 = outputBox.get()
 	indexNum += 1
 
 def add9():
 	global indexNum
 	outputBox.insert(indexNum, 9)
-	mathVar1 = outputBox.get()
 	indexNum += 1
 
 def add0():
 	global indexNum
 	outputBox.insert(indexNum, 0)
-	mathVar1 = outputBox.get()
 	indexNum += 1
+
+#All operator functions
+
+def addNum():
+	global firstNumVar
+	global secondNumVar
+	global isAdd
+	firstNumVar = outputBox.get()
+	outputBox.delete(0, tk.END)
+	isSecondNum = True
+	isAdd = True
+
+def calculate():
+	global firstNumVar
+	global secondNumVar
+	secondNumVar = outputBox.get()
+	outputBox.delete(0, tk.END)
+	if isAdd:
+		outputBox.insert(str(firstNumVar + secondNumVar))
+
 
 root = tk.Tk()
 
@@ -88,6 +128,8 @@ button1Label.grid(row=0, column=2)
 
 outputBox = tk.Entry(root,)
 outputBox.grid(row=1,column=2)
+
+#All the number buttons
 
 button1 = tk.Button(root, width=15, height=6, text = "1", command = add1)
 button1.grid(row=2, column=1)
@@ -119,13 +161,15 @@ button9.grid(row=4, column=3)
 button0 = tk.Button(root, width=15, height=6, text = "0", command = add0)
 button0.grid(row=5, column=1)
 
+#All the operator buttons
+
 buttonDecimal = tk.Button(root, width=15, height=6, text = ".")
 buttonDecimal.grid(row=5, column=2)
 
-buttonEquals = tk.Button(root, width=15, height=6, text = "=")
+buttonEquals = tk.Button(root, width=15, height=6, text = "=", command = calculate)
 buttonEquals.grid(row=5, column=3)
 
-buttonDelete = tk.Button(root, width=15, height=6, text = "Delete")
+buttonDelete = tk.Button(root, width=15, height=6, text = "Delete", command = deleteNum)
 buttonDelete.grid(row=2, column=4)
 
 buttonDivide = tk.Button(root, width=15, height=6, text = "/")
@@ -137,7 +181,7 @@ buttonMultiply.grid(row=4, column=4)
 buttonSubtract = tk.Button(root, width=15, height=6, text = "-")
 buttonSubtract.grid(row=5, column=4)
 
-buttonAdd = tk.Button(root, width=15, height=6, text = "+")
+buttonAdd = tk.Button(root, width=15, height=6, text = "+", command = addNum)
 buttonAdd.grid(row=6, column=4)
 
 buttonBug = tk.Button(root, width=15, height=6, text = "Report \na bug", command = reportIssue)
