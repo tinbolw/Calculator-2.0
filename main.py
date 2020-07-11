@@ -17,7 +17,7 @@ addNum = False
 subtractNum = False
 divideNum = False
 multiplyNum = False
-
+afterAnswer = False
 
 def reportIssue():
 	webbrowser.open('https://github.com/tinbolw/Calculator-2.0/issues')
@@ -42,62 +42,225 @@ def deleteNum():
 
 def add1():
 	global isFirstNum
+	global firstNum
 	global indexNum
-	if isFirstNum:
+	global afterAnswer
+	if afterAnswer:
+		clearAll()
+		afterAnswer = False
+		isFirstNum = True
+		isSecondNum = False
+		add1()
+	elif isFirstNum:
+		firstNum = str(firstNum)
+		firstNum = firstNum + "1"
+		firstNum = int(firstNum)
 		outputBox.insert(indexNum, 1)
-		firstNumVar = outputBox.get()
 		indexNum += 1
 	elif isSecondNum:
-		outputBox.insert(indexNum, 1)
-		secondNumVar = outputBox.get()
-		indexNum += 1
-
+		secondNum = str(secondNum)
+		secondNum = secondNum + "1"
+		secondNum = int(secondNum)
 
 def add2():
+	global isFirstNum
+	global firstNum
 	global indexNum
-	outputBox.insert(indexNum, 2)
-	indexNum += 1
+	global afterAnswer
+	if afterAnswer:
+		clearAll()
+		afterAnswer = False
+		isFirstNum = True
+		isSecondNum = False
+		add2()
+	elif isFirstNum:
+		firstNum = str(firstNum)
+		firstNum = firstNum + "2"
+		firstNum = int(firstNum)
+		outputBox.insert(indexNum, 2)
+		indexNum += 1
+	elif isSecondNum:
+		secondNum = str(secondNum)
+		secondNum = secondNum + "2"
+		secondNum = int(secondNum)
+
+
 
 def add3():
+	global isFirstNum
+	global firstNum
 	global indexNum
-	outputBox.insert(indexNum, 3)
-	indexNum += 1
-
+	global afterAnswer
+	if afterAnswer:
+		clearAll()
+		afterAnswer = False
+		isFirstNum = True
+		isSecondNum = False
+		add3()
+	elif isFirstNum:
+		firstNum = str(firstNum)
+		firstNum = firstNum + "3"
+		firstNum = int(firstNum)
+		outputBox.insert(indexNum, 3)
+		indexNum += 1
+	elif isSecondNum:
+		secondNum = str(secondNum)
+		secondNum = secondNum + "3"
+		secondNum = int(secondNum)
 
 def add4():
+	global isFirstNum
+	global firstNum
 	global indexNum
-	outputBox.insert(indexNum, 4)
-	indexNum += 1
+	global afterAnswer
+	if afterAnswer:
+		clearAll()
+		afterAnswer = False
+		isFirstNum = True
+		isSecondNum = False
+		add4()
+	elif isFirstNum:
+		firstNum = str(firstNum)
+		firstNum = firstNum + "4"
+		firstNum = int(firstNum)
+		outputBox.insert(indexNum, 4)
+		indexNum += 1
+	elif isSecondNum:
+		secondNum = str(secondNum)
+		secondNum = secondNum + "4"
+		secondNum = int(secondNum)
 
 def add5():
+	global isFirstNum
+	global firstNum
 	global indexNum
-	outputBox.insert(indexNum, 5)
-	indexNum += 1
+	global afterAnswer
+	if afterAnswer:
+		clearAll()
+		afterAnswer = False
+		isFirstNum = True
+		isSecondNum = False
+		add5()
+	elif isFirstNum:
+		firstNum = str(firstNum)
+		firstNum = firstNum + "5"
+		firstNum = int(firstNum)
+		outputBox.insert(indexNum, 5)
+		indexNum += 1
+	elif isSecondNum:
+		secondNum = str(secondNum)
+		secondNum = secondNum + "5"
+		secondNum = int(secondNum)
 
 def add6():
+	global isFirstNum
+	global firstNum
 	global indexNum
-	outputBox.insert(indexNum, 6)
-	indexNum += 1
+	global afterAnswer
+	if afterAnswer:
+		clearAll()
+		afterAnswer = False
+		isFirstNum = True
+		isSecondNum = False
+		add6()
+	elif isFirstNum:
+		firstNum = str(firstNum)
+		firstNum = firstNum + "6"
+		firstNum = int(firstNum)
+		outputBox.insert(indexNum, 6)
+		indexNum += 1
+	elif isSecondNum:
+		secondNum = str(secondNum)
+		secondNum = secondNum + "6"
+		secondNum = int(secondNum)
 
 def add7():
+	global isFirstNum
+	global firstNum
 	global indexNum
-	outputBox.insert(indexNum, 7)
-	indexNum += 1
+	global afterAnswer
+	if afterAnswer:
+		clearAll()
+		afterAnswer = False
+		isFirstNum = True
+		isSecondNum = False
+		add7()
+	elif isFirstNum:
+		firstNum = str(firstNum)
+		firstNum = firstNum + "4"
+		firstNum = int(firstNum)
+		outputBox.insert(indexNum, 7)
+		indexNum += 1
+	elif isSecondNum:
+		secondNum = str(secondNum)
+		secondNum = secondNum + "7"
+		secondNum = int(secondNum)
 
 def add8():
+	global isFirstNum
+	global firstNum
 	global indexNum
-	outputBox.insert(indexNum, 8)
-	indexNum += 1
+	global afterAnswer
+	if afterAnswer:
+		clearAll()
+		afterAnswer = False
+		isFirstNum = True
+		isSecondNum = False
+		add8()
+	elif isFirstNum:
+		firstNum = str(firstNum)
+		firstNum = firstNum + "8"
+		firstNum = int(firstNum)
+		outputBox.insert(indexNum, 8)
+		indexNum += 1
+	elif isSecondNum:
+		secondNum = str(secondNum)
+		secondNum = secondNum + "8"
+		secondNum = int(secondNum)
 
 def add9():
+	global isFirstNum
+	global firstNum
 	global indexNum
-	outputBox.insert(indexNum, 9)
-	indexNum += 1
+	global afterAnswer
+	if afterAnswer:
+		clearAll()
+		afterAnswer = False
+		isFirstNum = True
+		isSecondNum = False
+		add9()
+	elif isFirstNum:
+		firstNum = str(firstNum)
+		firstNum = firstNum + "9"
+		firstNum = int(firstNum)
+		outputBox.insert(indexNum, 9)
+		indexNum += 1
+	elif isSecondNum:
+		secondNum = str(secondNum)
+		secondNum = secondNum + "9"
+		secondNum = int(secondNum)
 
 def add0():
+	global isFirstNum
+	global firstNum
 	global indexNum
-	outputBox.insert(indexNum, 0)
-	indexNum += 1
+	global afterAnswer
+	if afterAnswer:
+		clearAll()
+		afterAnswer = False
+		isFirstNum = True
+		isSecondNum = False
+		add0()
+	elif isFirstNum:
+		firstNum = str(firstNum)
+		firstNum = firstNum + "0"
+		firstNum = int(firstNum)
+		outputBox.insert(indexNum, 0)
+		indexNum += 1
+	elif isSecondNum:
+		secondNum = str(secondNum)
+		secondNum = secondNum + "0"
+		secondNum = int(secondNum)
 
 #All operator functions
 
@@ -113,10 +276,15 @@ def addNum():
 def calculate():
 	global firstNumVar
 	global secondNumVar
+	global afterAnswer
 	secondNumVar = outputBox.get()
 	outputBox.delete(0, tk.END)
 	if isAdd:
-		outputBox.insert(str(firstNumVar + secondNumVar))
+		firstNumVar = int(firstNumVar)
+		secondNumVar = int(secondNumVar)
+		answer = firstNumVar + secondNumVar
+		outputBox.insert(0, answer)
+		afterAnswer = True
 
 
 root = tk.Tk()
