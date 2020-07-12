@@ -3,8 +3,10 @@ import math
 import tkinter as tk
 import webbrowser
 
-#TODO
-#add pemdas
+# TODO
+# add pemdas
+
+# Giving a value to all variables
 
 isFirstNum = True
 isSecondNum = False
@@ -18,6 +20,8 @@ subtractNum = False
 divideNum = False
 multiplyNum = False
 afterAnswer = False
+
+# Extra buttons
 
 def reportIssue():
 	webbrowser.open('https://github.com/tinbolw/Calculator-2.0/issues')
@@ -38,7 +42,7 @@ def deleteNum():
 	outputBox.delete(indexNum, tk.END)
 	indexNum -= 1
 
-#All addnum functions
+# All addnum functions
 
 def add1():
 	global isFirstNum
@@ -54,13 +58,13 @@ def add1():
 	elif isFirstNum:
 		firstNum = str(firstNum)
 		firstNum = firstNum + "1"
-		firstNum = int(firstNum)
+		firstNum = float(firstNum)
 		outputBox.insert(indexNum, 1)
 		indexNum += 1
 	elif isSecondNum:
 		secondNum = str(secondNum)
 		secondNum = secondNum + "1"
-		secondNum = int(secondNum)
+		secondNum = float(secondNum)
 
 def add2():
 	global isFirstNum
@@ -76,13 +80,13 @@ def add2():
 	elif isFirstNum:
 		firstNum = str(firstNum)
 		firstNum = firstNum + "2"
-		firstNum = int(firstNum)
+		firstNum = float(firstNum)
 		outputBox.insert(indexNum, 2)
 		indexNum += 1
 	elif isSecondNum:
 		secondNum = str(secondNum)
 		secondNum = secondNum + "2"
-		secondNum = int(secondNum)
+		secondNum = float(secondNum)
 
 
 
@@ -100,13 +104,13 @@ def add3():
 	elif isFirstNum:
 		firstNum = str(firstNum)
 		firstNum = firstNum + "3"
-		firstNum = int(firstNum)
+		firstNum = float(firstNum)
 		outputBox.insert(indexNum, 3)
 		indexNum += 1
 	elif isSecondNum:
 		secondNum = str(secondNum)
 		secondNum = secondNum + "3"
-		secondNum = int(secondNum)
+		secondNum = float(secondNum)
 
 def add4():
 	global isFirstNum
@@ -122,13 +126,13 @@ def add4():
 	elif isFirstNum:
 		firstNum = str(firstNum)
 		firstNum = firstNum + "4"
-		firstNum = int(firstNum)
+		firstNum = float(firstNum)
 		outputBox.insert(indexNum, 4)
 		indexNum += 1
 	elif isSecondNum:
 		secondNum = str(secondNum)
 		secondNum = secondNum + "4"
-		secondNum = int(secondNum)
+		secondNum = float(secondNum)
 
 def add5():
 	global isFirstNum
@@ -144,13 +148,13 @@ def add5():
 	elif isFirstNum:
 		firstNum = str(firstNum)
 		firstNum = firstNum + "5"
-		firstNum = int(firstNum)
+		firstNum = float(firstNum)
 		outputBox.insert(indexNum, 5)
 		indexNum += 1
 	elif isSecondNum:
 		secondNum = str(secondNum)
 		secondNum = secondNum + "5"
-		secondNum = int(secondNum)
+		secondNum = float(secondNum)
 
 def add6():
 	global isFirstNum
@@ -166,13 +170,13 @@ def add6():
 	elif isFirstNum:
 		firstNum = str(firstNum)
 		firstNum = firstNum + "6"
-		firstNum = int(firstNum)
+		firstNum = float(firstNum)
 		outputBox.insert(indexNum, 6)
 		indexNum += 1
 	elif isSecondNum:
 		secondNum = str(secondNum)
 		secondNum = secondNum + "6"
-		secondNum = int(secondNum)
+		secondNum = float(secondNum)
 
 def add7():
 	global isFirstNum
@@ -188,13 +192,13 @@ def add7():
 	elif isFirstNum:
 		firstNum = str(firstNum)
 		firstNum = firstNum + "4"
-		firstNum = int(firstNum)
+		firstNum = float(firstNum)
 		outputBox.insert(indexNum, 7)
 		indexNum += 1
 	elif isSecondNum:
 		secondNum = str(secondNum)
 		secondNum = secondNum + "7"
-		secondNum = int(secondNum)
+		secondNum = float(secondNum)
 
 def add8():
 	global isFirstNum
@@ -210,13 +214,13 @@ def add8():
 	elif isFirstNum:
 		firstNum = str(firstNum)
 		firstNum = firstNum + "8"
-		firstNum = int(firstNum)
+		firstNum = float(firstNum)
 		outputBox.insert(indexNum, 8)
 		indexNum += 1
 	elif isSecondNum:
 		secondNum = str(secondNum)
 		secondNum = secondNum + "8"
-		secondNum = int(secondNum)
+		secondNum = float(secondNum)
 
 def add9():
 	global isFirstNum
@@ -232,13 +236,13 @@ def add9():
 	elif isFirstNum:
 		firstNum = str(firstNum)
 		firstNum = firstNum + "9"
-		firstNum = int(firstNum)
+		firstNum = float(firstNum)
 		outputBox.insert(indexNum, 9)
 		indexNum += 1
 	elif isSecondNum:
 		secondNum = str(secondNum)
 		secondNum = secondNum + "9"
-		secondNum = int(secondNum)
+		secondNum = float(secondNum)
 
 def add0():
 	global isFirstNum
@@ -254,13 +258,13 @@ def add0():
 	elif isFirstNum:
 		firstNum = str(firstNum)
 		firstNum = firstNum + "0"
-		firstNum = int(firstNum)
+		firstNum = float(firstNum)
 		outputBox.insert(indexNum, 0)
 		indexNum += 1
 	elif isSecondNum:
 		secondNum = str(secondNum)
 		secondNum = secondNum + "0"
-		secondNum = int(secondNum)
+		secondNum = float(secondNum)
 
 #All operator functions
 
@@ -268,10 +272,61 @@ def addNum():
 	global firstNumVar
 	global secondNumVar
 	global isAdd
+	global isDivide
+	global isSubtract
+	global isMultiply
 	firstNumVar = outputBox.get()
 	outputBox.delete(0, tk.END)
 	isSecondNum = True
 	isAdd = True
+	isDivide = False
+	isSubtract = False
+	isMultiply = False
+
+def multiplyNum():
+	global firstNumVar
+	global secondNumVar
+	global isAdd
+	global isDivide
+	global isSubtract
+	global isMultiply
+	firstNumVar = outputBox.get()
+	outputBox.delete(0, tk.END)
+	isSecondNum = True
+	isMultiply = True
+	isAdd = False
+	isDivide = False
+	isSubtract = False
+
+def divideNum():
+	global firstNumVar
+	global secondNumVar
+	global isAdd
+	global isDivide
+	global isSubtract
+	global isMultiply
+	firstNumVar = outputBox.get()
+	outputBox.delete(0, tk.END)
+	isSecondNum = True
+	isMultiply = False
+	isAdd = False
+	isDivide = True
+	isSubtract = False
+
+def subtractNum():
+	global firstNumVar
+	global secondNumVar
+	global isAdd
+	global isDivide
+	global isSubtract
+	global isMultiply
+	firstNumVar = outputBox.get()
+	outputBox.delete(0, tk.END)
+	isSecondNum = True
+	isMultiply = False
+	isAdd = False
+	isDivide = False
+	isSubtract = True
 
 def calculate():
 	global firstNumVar
@@ -280,9 +335,27 @@ def calculate():
 	secondNumVar = outputBox.get()
 	outputBox.delete(0, tk.END)
 	if isAdd:
-		firstNumVar = int(firstNumVar)
-		secondNumVar = int(secondNumVar)
+		firstNumVar = float(firstNumVar)
+		secondNumVar = float(secondNumVar)
 		answer = firstNumVar + secondNumVar
+		outputBox.insert(0, answer)
+		afterAnswer = True
+	if isMultiply:
+		firstNumVar = float(firstNumVar)
+		secondNumVar = float(secondNumVar)
+		answer = firstNumVar * secondNumVar
+		outputBox.insert(0, answer)
+		afterAnswer = True
+	if isDivide:
+		firstNumVar = float(firstNumVar)
+		secondNumVar = float(secondNumVar)
+		answer = firstNumVar / secondNumVar
+		outputBox.insert(0, answer)
+		afterAnswer = True
+	if isSubtract:
+		firstNumVar = float(firstNumVar)
+		secondNumVar = float(secondNumVar)
+		answer = firstNumVar - secondNumVar
 		outputBox.insert(0, answer)
 		afterAnswer = True
 
@@ -340,13 +413,13 @@ buttonEquals.grid(row=5, column=3)
 buttonDelete = tk.Button(root, width=15, height=6, text = "Delete", command = deleteNum)
 buttonDelete.grid(row=2, column=4)
 
-buttonDivide = tk.Button(root, width=15, height=6, text = "/")
+buttonDivide = tk.Button(root, width=15, height=6, text = "/", command = divideNum)
 buttonDivide.grid(row=3, column=4)
 
-buttonMultiply = tk.Button(root, width=15, height=6, text = "x")
+buttonMultiply = tk.Button(root, width=15, height=6, text = "x", command = multiplyNum)
 buttonMultiply.grid(row=4, column=4)
 
-buttonSubtract = tk.Button(root, width=15, height=6, text = "-")
+buttonSubtract = tk.Button(root, width=15, height=6, text = "-", command = subtractNum)
 buttonSubtract.grid(row=5, column=4)
 
 buttonAdd = tk.Button(root, width=15, height=6, text = "+", command = addNum)
