@@ -5,7 +5,8 @@ import webbrowser
 
 # TODO
 # add pemdas
-
+# add decimal
+# fix syntax error and divide by 0
 # Giving a value to all variables
 
 isFirstNum = True
@@ -31,6 +32,7 @@ def clearAll():
 	global indexNum
 	global firstNum
 	global secondNum
+	hasNum = False
 	firstNum = 0
 	secondNum = 0
 	outputBox.delete(0, tk.END)
@@ -39,8 +41,23 @@ def clearAll():
 
 def deleteNum():
 	global indexNum
-	outputBox.delete(indexNum, tk.END)
-	indexNum -= 1
+	global hasNum
+	if indexNum > 0:
+		outputBox.delete(indexNum, tk.END)
+		indexNum -= 1
+	if indexNum == 0:
+		hasNum = False
+
+def addDecimal():
+	global hasNum
+	if hasNum:
+		outputBox.insert(indexNum, ".")
+		indexNum += 1
+	elif not hasNum:
+		hasNum = False
+		afterAnswer = True
+		outputBox.insert(0, "Syntax Error")
+
 
 # All addnum functions
 
@@ -49,6 +66,7 @@ def add1():
 	global firstNum
 	global indexNum
 	global afterAnswer
+	global hasNum
 	if afterAnswer:
 		clearAll()
 		afterAnswer = False
@@ -61,6 +79,7 @@ def add1():
 		firstNum = float(firstNum)
 		outputBox.insert(indexNum, 1)
 		indexNum += 1
+		hasNum = True
 	elif isSecondNum:
 		secondNum = str(secondNum)
 		secondNum = secondNum + "1"
